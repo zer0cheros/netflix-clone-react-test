@@ -1,9 +1,9 @@
 import React from 'react'
-import {signInWithEmailAndPassword} from 'firebase/auth'
-
+import LoginComponet from '../componet/Login';
+import "../componet/Style.css";
 function Login() {
   return (
-    <div>Login</div>
+    <LoginComponet/>
   )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
+import Body from '../componet/Body';
 
 function FrontPage() {
   return (
-    <div>FrontPage</div>
+    <Body/>
   )
 }
 

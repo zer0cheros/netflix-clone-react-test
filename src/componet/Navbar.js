@@ -1,6 +1,7 @@
 import React from "react";
 import "./Style.css";
 import Logo from './Logo'
+import {Link} from 'react-router-dom'
 
 function NavBar() {
   return <nav>
@@ -11,7 +12,7 @@ function NavBar() {
             <option value="fin">Suomi</option>
             <option value="eng">English</option>
         </select>
-        <button className="signin-button">Logga in</button>
+        <button className="signin-button"><a href="/login">Logga in</a></button>
         </div>
     </nav>;
 }
