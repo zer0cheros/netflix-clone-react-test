@@ -11,12 +11,12 @@ function LoginComponet() {
     const handleSubmit = (e)=>{
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password).then((cred)=>{
-            return cred.user.getIdToken
+            return cred.user.getIdToken()
         }).then((token)=>{
-            console.log(token)
+            localStorage.setItem('token', token)
+            window.location.replace('/home')
         })
   }
-  
     return (
         <div className='body'>
         <NavBar />
