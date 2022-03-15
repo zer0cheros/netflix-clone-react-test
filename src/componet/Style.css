@@ -1,3 +1,11 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
 body {
   background-color: black;
 }
@@ -44,7 +52,10 @@ body {
     width: 150px;
     background-image: url('../img/logo.svg');
     background-size: cover;
-  }
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    }
   .content {
       min-height: 550px; 
       display: flex;
@@ -139,11 +150,49 @@ body {
   .browse-container {
     width: 100%;
     min-height: 100vh;
-    background-color: black;
+    background-color: rgb(22, 21, 21);
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+  }
+  .browse {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 200px;
+    align-items: center;
+  }
+  .middle{
+    display: flex;
+    gap: 2rem;
+  }
+  .profile img, .children img, .add-profile img {
+    width: 220px;
+    height: 220px;
+    border-radius: 5px;
+  }
+  .profile img:hover, .children img:hover, .add-profile img:hover {
+    border: solid 3px #ddd;
+  }
+  .profile, .children, .add-profile {
+    text-align: center;
+    color: rgb(200, 192, 192);
+    font-size: small;
+  }
+  .who {
+    color: #fff;
+    font-size: 5rem;
+  }
+  .add-profile{
+    flex-direction: column;
+    display: flex;
+  }
+  .add-profile button {
+    background-color: transparent;
+    border: none;
+    color: rgb(200, 192, 192);
+    font-size: 1.7rem;
   }
   .header-link,
   .header-link-bold {
