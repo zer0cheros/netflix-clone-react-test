@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {auth} from '../componet/firebase-config'
 import {useHistory} from 'react-router-dom'
+import MovieBackgound from '../componet/MovieBackground'
 
 function Index() {
   const FBtoken = localStorage.token 
@@ -20,9 +21,11 @@ function Index() {
       }
     },[])
   return (
-    <div>Index
-      {console.log(trendingMovies)}
+    <div>
+      <MovieBackgound/>
+      <h1 className='trending-h1' >Populärt på Netflix</h1>
       <div className='trending'>
+        
         {trendingMovies.map(movie=>(
           <div key={movie.id} className='trending-movies'>
           <p>{movie.id}</p>
