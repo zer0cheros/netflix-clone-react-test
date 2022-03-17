@@ -2,6 +2,17 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: black;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+
 }
 .body {
     background-image: url('../img/home-bg.jpg');
@@ -11,12 +22,7 @@
     padding: 30px 50px;
     position: relative;
   }
-  @media (max-width: 550px) {
-    .header-wrapper-home,
-    .header-wrapper-browse {
-      padding: 15px 20px;
-    }
-  }
+  
   nav {
     max-width: 1850px;
     width: 100%;
@@ -57,16 +63,19 @@
     width: 150px;
     background-image: url('../img/logo.svg');
     background-size: cover;
-  }
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    }
   .content {
-      min-height: 60vh; 
+      min-height: 550px; 
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start; 
   }
   .text{
-    width: 50%;
+    width: 30%;
     text-align: center;
   }
   .content h1, .content h2, .content h3 {
@@ -84,9 +93,45 @@
   .content h3{
     font-size: 1.2rem;
   }
+  .under-container{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+  }
+  .under-1, .under-2{
+    width: 100%;
+    height: 100%;
+    border-top: 8px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .under-1-text, .under-2-text{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .under-1 h1, .under-2 h1{
+    color: #fff;
+    font-size: 3rem;
+  }
+  .under-1 h2, .under-2 h2{
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .under-1-img, .under-2-img{
+    width: 25%;
+  }
+  .under-1-img img, .under-2-img img{
+    max-height: 400px;
+  }
   .form-control{
     display: flex;
-    width: 50%;
+    width: 30%;
     height: 70px;
   }
   .try{
@@ -113,7 +158,53 @@
     padding: 0.5rem 1rem;
     cursor: pointer;
   }
-  
+  .browse-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(22, 21, 21);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .browse {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 200px;
+    align-items: center;
+  }
+  .middle{
+    display: flex;
+    gap: 2rem;
+  }
+  .profile img, .children img, .add-profile img {
+    width: 220px;
+    height: 220px;
+    border-radius: 5px;
+  }
+  .profile img:hover, .children img:hover, .add-profile img:hover {
+    border: solid 3px #ddd;
+  }
+  .profile, .children, .add-profile {
+    text-align: center;
+    color: rgb(200, 192, 192);
+    font-size: small;
+  }
+  .who {
+    color: #fff;
+    font-size: 5rem;
+  }
+  .add-profile{
+    flex-direction: column;
+    display: flex;
+  }
+  .add-profile button {
+    background-color: transparent;
+    border: none;
+    color: rgb(200, 192, 192);
+    font-size: 1.7rem;
+  }
   .header-link,
   .header-link-bold {
     padding: 5px;
@@ -186,4 +277,39 @@
   .trending-movies img {
       max-width: 100%;
       max-height: 100%;
+  }
+  @media (max-width: 650px) {
+    .navbar-home,
+    .navbar-signin {
+      margin-bottom: 100px;
+    }
+    .under-1, .under-2{
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+    .under-1-img, .under-2-img{
+      height: 50%;
+      width: 100%;
+    }
+    .under-1-img img, .under-2-img img{
+      width: 60%;
+    }
+    .under-1-text, .under-2-text{
+      height: 50%;
+      width: 100%;
+    }
+    .under-1 h2, .under-2 h2{
+      color: #fff;
+      font-size: 1.3rem;
+    }
+    .under-1 h1, .under-2 h1{
+      color: #fff;
+      font-size: 2rem;
+    }
+  }
+  @media (max-width: 1400px) {
+    .under-1-img img, .under-2-img img{
+      height: 250px;
+    }
   }
