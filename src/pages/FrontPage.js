@@ -6,8 +6,8 @@ import ContentUnder from '../componet/ContentUnder';
 function FrontPage() {
   return (
     <div className='container'>
-    <Body/>
-    <ContentUnder/>
+      <Body/>
+      <ContentUnder/>
     </div>
   )
 }

@@ -11,7 +11,7 @@ function Login() {
   const history = useHistory()
   const checkIfUserIsLoggedIn = ()=>{
     if(FBtoken){
-      history.push('/home')
+      history.push('/browse')
     }else{
       return
     }
