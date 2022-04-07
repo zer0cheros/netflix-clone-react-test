@@ -14,11 +14,11 @@ function Index({profile}) {
   const [trendingMovies, setTrendingMovies] = useState([])
   const [trendingMoviesNow, setTrendingMoviesNow] = useState([])
     const fetchTrendingMovies = async ()=>{
-        const res = await axios.get('https://api.themoviedb.org/2/trending/all/day?api_key=9a1e89b1e00d29700a09837834e245cf')
+        const res = await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=9a1e89b1e00d29700a09837834e245cf&language=en-US&page=1', {headers: { 'Content-Type': 'application/json'}})
         setTrendingMovies([...res.data.results])
     }
     const fetchTrendingMoviesNow = async ()=>{
-      const res = await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=9a1e89b1e00d29700a09837834e245cf&language=en-US&page=2')
+      const res = await axios.get('https://api.themoviedb.org/3/tv/popular?api_key=9a1e89b1e00d29700a09837834e245cf&language=en-US&page=4')
       setTrendingMoviesNow([...res.data.results])
   }
     useEffect(()=>{
@@ -31,7 +31,6 @@ function Index({profile}) {
     },[])
   return (
     <div>
-      <FetchUser profile={profile}/>
       <NavBar/>
       <MovieBackgound/>
       <h1 className='trending-h1' >Populärt på Netflix</h1>

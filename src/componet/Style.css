@@ -36,8 +36,15 @@ body {
     position: relative;
     height: auto;
     width: 100%;
-    top: -200px;
+    top: -250px;
     z-index: -10;
+  }
+  body::-webkit-scrollbar {
+    width: 1em;
+  }
+  .trending::-webkit-scrollbar, .trending-now::-webkit-scrollbar {
+    width: 1em;
+    background-color: #555;
   }
   @media (max-width: 550px) {
     .navbar-home,
@@ -177,10 +184,12 @@ body {
     gap: 2rem;
     min-height: 200px;
     align-items: center;
+    
   }
   .middle{
     display: flex;
     gap: 2rem;
+    width: 100%;
   }
   .profile img, .children img, .add-profile img {
     width: 220px;
@@ -300,6 +309,10 @@ body {
     width: 50%;
     height: 50%;
     background-color: #555;
+  }
+  .close {
+    position: relative;
+    z-index: 10;
   }
   @media (max-width: 650px) {
     .navbar-home,
