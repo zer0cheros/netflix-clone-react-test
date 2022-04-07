@@ -5,12 +5,15 @@ import {auth} from '../componet/firebase-config'
 import {useHistory} from 'react-router-dom'
 import MovieBackgound from '../componet/MovieBackground'
 import NavBar from '../componet/Navbar';
+import {addDoc, collection} from 'firebase/firestore'
+import {db} from '../componet/firebase-config'
 
 
 function Index({profile}) {
   const FBtoken = localStorage.token 
   const history = useHistory() 
   const imageURL = 'https://image.tmdb.org/t/p/w500'
+  const dbRef = collection(db, 'favorites')
   const [trendingMovies, setTrendingMovies] = useState([])
   const [trendingMoviesNow, setTrendingMoviesNow] = useState([])
     const fetchTrendingMovies = async ()=>{
@@ -37,7 +40,16 @@ function Index({profile}) {
       <div className='trending'>
         {trendingMovies.map(movie=>(
           <div key={movie.id} className='trending-movies'>
-          <img src={imageURL + movie.poster_path}/>
+            {console.log(movie)}
+          <img src={imageURL + movie.poster_path} onClick={()=>{
+            addDoc(dbRef, {
+              movieID: movie.id,
+              name: movie.name,
+              text: movie.overview,
+              image: imageURL + movie.poster_path,
+              uid: auth.currentUser.uid
+            }).then(()=>{console.log('saved');})
+          }}/>
           </div>
         ))}
       </div>
@@ -45,7 +57,15 @@ function Index({profile}) {
       <div className='trending-now'>
         {trendingMoviesNow.map(movie=>(
           <div key={movie.id} className='trending-movies'>
-          <img src={imageURL + movie.poster_path}/>
+          <img src={imageURL + movie.poster_path} onClick={()=>{
+            addDoc(dbRef, {
+              movieID: movie.id,
+              name: movie.name,
+              text: movie.overview,
+              image: imageURL + movie.poster_path,
+              uid: auth.currentUser.uid
+            }).then(()=>{console.log('saved');})
+          }}/>
           </div>
         ))}
       </div>
