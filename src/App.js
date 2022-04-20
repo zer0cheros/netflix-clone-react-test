@@ -10,7 +10,8 @@ import { useHistory } from "react-router-dom";
 import {onAuthStateChanged} from 'firebase/auth'
 
 function App() {
-  const FBtoken = localStorage.token
+  const [user, setUser] = useState([])
+  
   let history = useHistory() 
   return (
     <Router>

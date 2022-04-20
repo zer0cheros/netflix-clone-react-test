@@ -242,7 +242,9 @@ body {
     margin-left: 25px;
     cursor: pointer;
   }
-  
+  .texts{
+    color: #fff;
+  }
   .header-link-bold {
     font-weight: bolder;
   }

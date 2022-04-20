@@ -3,6 +3,7 @@ import "./Style.css";
 import Logo from './Logo'
 import {Link} from 'react-router-dom'
 import {auth} from '../componet/firebase-config'
+import profilePic from '../img/icon.png'
 
 function NavBar() {
     const token = localStorage.token
@@ -21,7 +22,9 @@ function NavBar() {
         localStorage.removeItem('token')
         window.location.replace('/login')
         }}>Logga ut</button>} 
+        {token ? <img onClick={()=>{window.location.href = '/profile'}} src={profilePic} width='40px'></img> :null}
         </div>
+        
     </nav>;
 }
 

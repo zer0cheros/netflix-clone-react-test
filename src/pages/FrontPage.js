@@ -4,6 +4,13 @@ import {useHistory} from 'react-router-dom'
 import ContentUnder from '../componet/ContentUnder';
 
 function FrontPage() {
+  const FBtoken = localStorage.token 
+  const history = useHistory() 
+  useEffect(()=>{
+    if(FBtoken){
+      history.push('/home')
+    }
+  },[])
   return (
     <div className='container'>
       <Body/>
