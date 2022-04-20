@@ -70,11 +70,7 @@ function Index({profile}) {
         ))}
       </div>
       <h1 className='watchlist-h1' >Fortsätt titta som </h1>
-    <button onClick={()=>{
-      auth.signOut()
-      localStorage.removeItem('token')
-      window.location.replace('/login')
-    }}>Logga ut</button>
+    
     </div>
   )
 
