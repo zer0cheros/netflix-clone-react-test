@@ -1,35 +1,39 @@
 import React, {useEffect, useState} from 'react'
 import {auth, db} from './firebase-config'
 import {getDocs, collection, query, where, onSnapshot} from 'firebase/firestore'
-import { async } from '@firebase/util'
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 
 function ProfileComponet() {
+    const [user, loading, error] = useAuthState(auth);
     const dbref = collection(db, 'favorites')
+    let array = []
     const [favorites , setFavorites] = useState([])
-    const getData = async()=>{
-      const q = query(collection(db, "favorites"))
-      const unsubscribe = onSnapshot(q, (snapshot) => {
-        snapshot.docChanges().forEach((change) => {
-          if (change.type === "added") {
-              setFavorites([change.doc.data()])
-          }
-          if (change.type === "modified") {
-              console.log("Modified city: ", change.doc.data());
-          }
-          if (change.type === "removed") {
-              console.log("Removed city: ", change.doc.data());
-          }
+    const getData = ()=>{
+      const q = query(dbref, where('uid', '==', user.uid))
+      getDocs(q).then((data)=>{
+        data.forEach(element => {
+          array.push(element.data())
         })
+        setFavorites(array)
       })
     }
-    useEffect(()=>{
-        getData()   
-    }, [])
+    useEffect(()=>{ 
+      if(loading) return '..loading'
+      if(user){
+        getData() 
+      }
+    }, [loading, user])
     return (
-    <div>
+    <div className='profile-content'>
+      {console.log(favorites)}
         {favorites.map(favorite=>(
-          <div key={favorite.movieID}>
+          <div className='favorite-card' key={favorite.movieID}>
             <h1 className='texts'>{favorite.name}</h1>
+            <img src={favorite.image} className='favorite-image'></img>
+            <div className='info'>
+            <p className='texts'>{favorite.text}</p>
+            </div>
           </div>
           ))}
     </div>

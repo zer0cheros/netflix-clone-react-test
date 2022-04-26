@@ -33,7 +33,7 @@ function Index({profile}) {
       }
     },[])
   return (
-    <div>
+    <div className='index'>
       <NavBar/>
       <MovieBackgound/>
       <h1 className='trending-h1' >Populärt på Netflix</h1>

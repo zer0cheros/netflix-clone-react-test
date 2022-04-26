@@ -2,7 +2,9 @@ import React from 'react'
 
 function Logo() {
   return (
-    <div className='logo'></div>
+    <div onClick={()=>{
+      window.location.href = '/'
+    }} className='logo'></div>
     
   )
 }
