@@ -14,7 +14,7 @@ function LoginComponet() {
             return cred.user.getIdToken()
         }).then((token)=>{
             localStorage.setItem('token', token)
-            window.location.replace('/home')
+            window.location.replace('/browse')
         })
   }
     return (

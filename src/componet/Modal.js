@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {db} from './firebase-config'
+import {db, auth} from './firebase-config'
 import {setDoc, addDoc, collection} from 'firebase/firestore'
 
 function Modal({show}) {
@@ -9,7 +9,8 @@ function Modal({show}) {
         const dbref = collection(db, 'Profile')
         addDoc(dbref, {
             name: username,
-            profileImage:'./img/icon.png'
+            profileImage:'./img/icon.png',
+            uid: auth.currentUser.uid
         }).then((data)=>{
             console.log('saved')
         })
