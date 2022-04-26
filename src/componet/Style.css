@@ -360,10 +360,29 @@ body {
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: #555;
+    background-color: #333;
+    box-shadow: 2px 3px 7px #999;
+    border-radius: 6px;
+  }
+  
+  .modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;margin-top: 20px;
+  }
+  .modal form input {
+    width: 90%;
+    border-bottom: 3px;
+    padding: 1rem 0rem;
+  }
+  .modal form label {
+    font-size: 2rem;
   }
   .close {
-    position: relative;
+    position: absolute;
+    top: 300px;
     z-index: 10;
   }
   .trailer2 {
@@ -376,13 +395,32 @@ body {
       top: -150px;
       scale: 0.8;
     }
+    .middle {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .browse {
+      text-align: center;
+    }
   }
   @media (max-width: 650px) {
     .body{
       padding: 0;
     }
+    .modal{
+      width: 90%;
+      max-height: 350px;
+      height: 90%;
+    }
     .form-control{
       width: 90%;
+    }
+    .browse {
+      margin-top: 80px;
+    }
+    .browse img {
+      max-width: 160px;
+      max-height: 160px;
     }
     .text{
       width: 90%;

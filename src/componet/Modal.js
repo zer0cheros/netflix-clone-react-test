@@ -21,11 +21,11 @@ function Modal({show}) {
     return (
     <div className='modal'>
         <form onSubmit={addUser}>
-        <label>Lägg till användare</label>
+        <label className='texts'>Lägg till användare</label>
         <input onChange={({target})=>{
             addUsername(target.value)
         }}/>
-        <button type='submit'>Lägg till</button>
+        <button className='signin-button' type='submit'>Lägg till</button>
         </form>
     </div>
   )
