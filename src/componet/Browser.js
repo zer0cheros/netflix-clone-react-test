@@ -65,7 +65,7 @@ function Browser() {
         </div>
         </div>
         <button className='handle-profile'>Hantera profiler</button>
-        {visible ? <><Modal show={visible} /><button className='close' onClick={()=>{
+        {visible ? <><Modal show={visible} /><button className='close signin-button' onClick={()=>{
           setVisible(false)
         }}>Close</button></> : null}
     </div>
