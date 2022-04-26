@@ -69,8 +69,6 @@ function Index({profile}) {
           </div>
         ))}
       </div>
-      <h1 className='watchlist-h1' >Fortsätt titta som </h1>
-    
     </div>
   )
 
