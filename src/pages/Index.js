@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import FetchUser from '../componet/FetchUser'
 import axios from 'axios'
 import {auth} from '../componet/firebase-config'
 import {useHistory} from 'react-router-dom'
@@ -66,11 +65,9 @@ function Index({profile}) {
               uid: auth.currentUser.uid
             }).then(()=>{console.log('saved');})
           }}/>
-          </div>
+          </div> 
         ))}
       </div>
-      <h1 className='watchlist-h1' >Fortsätt titta som </h1>
-    
     </div>
   )
 
