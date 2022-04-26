@@ -382,7 +382,6 @@ body {
   }
   .close {
     position: absolute;
-    top: 300px;
     z-index: 10;
   }
   .trailer2 {
@@ -406,6 +405,9 @@ body {
   @media (max-width: 650px) {
     .body{
       padding: 0;
+    }
+    .close {
+      top: 300px;
     }
     .modal{
       width: 90%;
