@@ -1,23 +1,29 @@
-import React, {createElement, useEffect, useState} from 'react'
-import {db} from './firebase-config'
-import {getDocs, collection, query, setDoc} from 'firebase/firestore'
+import React, {useEffect, useState} from 'react'
+import {db, auth} from './firebase-config'
+import {getDocs, collection, query, setDoc, where} from 'firebase/firestore'
 import profilePic from '../img/icon.png'
+import profilePic2 from '../img/Netflix-avatar.png'
 import kidsPic from '../img/kids.jpg'
 import add from '../img/add.PNG'
 import Modal from './Modal'
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 function Browser() {
+  const [user, loading, error] = useAuthState(auth);
   const dbref = collection(db, 'Profile')
+  let array = []
   const [profile, setProfile] = useState([])
   const [visible, setVisible] = useState(false)
   const fetchUserProfile = ()=>{
-    const q = query(dbref)
+    const q = query(dbref, where('uid', '==', user.uid))
     getDocs(q).then((data)=>{
       data.forEach(element => {
-        setProfile([element.data()])
-      });
+        array.push(element.data())
+      })
+      setProfile(array)
     })
+    
   }
   const showModal = ()=>{
     if(visible){
@@ -30,14 +36,17 @@ function Browser() {
     
   }
   useEffect(()=>{
+    if(loading) return '..loading'
+    if(user){
     fetchUserProfile()
-  },[])
+    }
+  },[user, loading])
   return (
     <div className='browse'>
         <h1 className='who'>Vem är det som tittar?</h1>
         <div className='middle'>
         {profile.map((p)=> (
-        <div key={p} className='profile'>
+        <div key={Math.floor(Math.random()* 999)} className='profile'>
           {console.log(p)}
           <img onClick={()=>{
             window.location.assign('/home')

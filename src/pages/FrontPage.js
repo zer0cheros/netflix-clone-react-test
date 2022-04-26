@@ -8,7 +8,7 @@ function FrontPage() {
   const history = useHistory() 
   useEffect(()=>{
     if(FBtoken){
-      history.push('/home')
+      history.push('/browse')
     }
   },[])
   return (
