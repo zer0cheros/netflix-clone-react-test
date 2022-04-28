@@ -5,14 +5,11 @@ import Login from './pages/Login'
 import Index from "./pages/Index";
 import Browse from "./pages/Browse";
 import Profile from "./pages/Profile"
-import {auth} from './componet/firebase-config'
-import { useHistory } from "react-router-dom";
-import {onAuthStateChanged} from 'firebase/auth'
 
 function App() {
-  const [user, setUser] = useState([])
-  
-  let history = useHistory() 
+  useEffect(()=>{
+
+  }, [console.log('render')])
   return (
     <Router>
       <Switch>

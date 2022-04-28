@@ -31,8 +31,9 @@ function LoginComponet() {
             }} />
             <button onClick={handleSubmit} className="signin-button" type='submit'>Logga in</button>
             <div className='checkbox'>
-                <input type='checkbox'/><p>Kom ihåg mig</p><p>Behöver du hjälp?</p>
+                <input type='checkbox'/><p>Kom ihåg mig</p>
             </div>
+            <p className='checkbox'>Behöver du hjälp?</p>
         </form>
         </div>
     </div>
