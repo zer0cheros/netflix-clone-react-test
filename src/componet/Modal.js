@@ -13,11 +13,12 @@ function Modal({show}) {
             uid: auth.currentUser.uid
         }).then((data)=>{
             console.log('saved')
+            window.location.reload()
         })
         .catch((err)=>{
             console.log(err)
         })
-        window.location.reload()
+        
     }
     return (
     <div className='modal'>
