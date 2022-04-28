@@ -26,7 +26,6 @@ function ProfileComponet() {
     }, [loading, user])
     return (
     <div className='profile-content'>
-      {console.log(favorites)}
         {favorites.map(favorite=>(
           <div className='favorite-card' key={favorite.movieID}>
             <h1 className='texts'>{favorite.name}</h1>

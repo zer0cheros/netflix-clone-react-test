@@ -264,7 +264,8 @@ body {
     position: absolute;
     top: 20%;
     left: 50%;
-    width: 25%;
+    max-width:500px;
+    width: 90%;
     transform: translate(-50%);
     background-color: rgba(22, 21, 21, 0.8);
     display: flex;
@@ -310,8 +311,10 @@ body {
   }
   .checkbox {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
     width: 100%;
+    color: #fff;
   }
   
   .trending {
