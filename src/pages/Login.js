@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-import {auth} from '../componet/firebase-config'
 import {useHistory} from 'react-router-dom'
 import LoginComponet from '../componet/Login';
 

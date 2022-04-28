@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {db, auth} from './firebase-config'
 import {getDocs, collection, query, setDoc, where} from 'firebase/firestore'
 import profilePic from '../img/icon.png'
-import profilePic2 from '../img/Netflix-avatar.png'
 import kidsPic from '../img/kids.jpg'
 import add from '../img/add.PNG'
 import Modal from './Modal'
@@ -23,7 +22,6 @@ function Browser() {
       })
       setProfile(array)
     })
-    
   }
   const showModal = ()=>{
     if(visible){
@@ -33,7 +31,6 @@ function Browser() {
       setVisible(true)
       console.log('true')
     }
-    
   }
   useEffect(()=>{
     if(loading) return '..loading'
@@ -47,7 +44,6 @@ function Browser() {
         <div className='middle'>
         {profile.map((p)=> (
         <div key={Math.floor(Math.random()* 999)} className='profile'>
-          {console.log(p)}
           <img onClick={()=>{
             window.location.assign('/home')
           }} src={profilePic}></img>
