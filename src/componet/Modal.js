@@ -17,6 +17,7 @@ function Modal({show}) {
         .catch((err)=>{
             console.log(err)
         })
+        window.location.reload()
     }
     return (
     <div className='modal'>
